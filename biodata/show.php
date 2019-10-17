@@ -16,13 +16,13 @@ $bio = new Biodata();
     <?php 
         foreach($bio->show($_GET['id']) as $data)
         {
-            $id = $_data['id'];
-            $nama = $_data['nama'];
-            $alamat = $_data['alamat'];
-            $tgl_lahir = $_data['tgl_lahir'];
-            $jk = $_data['jk'];
-            $agama = $_data['agama'];
-            $umur = $_data['umur'];
+            $id = $data['id'];
+            $nama = $data['nama'];
+            $alamat = $data['alamat'];
+            $tgl_lahir = $data['tgl_lahir'];
+            $jk = $data['jk'];
+            $agama = $data['agama'];
+            $umur = $data['umur'];
         }
     ?>
     <div class = "container">
@@ -46,23 +46,47 @@ $bio = new Biodata();
                         </div>
                         <div class = "form-group">
                             <label for="">Jenis Kelamin</label>
-                            <input type="radio" name = "jk" value = "<?php echo $jk;?>"readonly>Laki - Laki
-                            <input type="radio" name="jk" value = "<?php echo $jk;?>"readonly>Perempuan
+                                <?php 
+                                    if ($jk == "Laki - Laki") {?>
+                                        <input type="radio" name = "jk" value = "Laki - Laki" checked>Laki Laki
+                                        <input type="radio" name="jk" value = "Perempuan" disabled>Perempuan   
+                                <?php }else { ?>
+                                        <input type="radio" name = "jk" value = "Laki - Laki" disabled>Laki Laki
+                                        <input type="radio" name="jk" value = "Perempuan" checked>Perempuan
+                                <?php } ?>
                         </div>
                         <div class = "form-group">
                             <label for="">Agama</label>
                             <select name="agama" id="" value = "<?php echo $agama;?>" readonly class ="form-control">
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Buddha">Buddha</option>
-                                <option value="Hindu">Hindu</option>
+                                <?php if ($agama == "Islam") { ?>
+                                        <option value="Islam"selected>Islam</option>
+                                        <option value="Kristen" disabled>Kristen</option>
+                                        <option value="Buddha"disabled>Buddha</option>
+                                        <option value="Hindu"disabled>Hindu</option>
+                                <?php } elseif ($agama == "Kristen") { ?>
+                                    <option value="Islam"disabled>Islam</option>
+                                    <option value="Kristen"selected>Kristen</option>
+                                    <option value="Buddha"disabled>Buddha</option>
+                                    <option value="Hindu"disabled>Hindu</option>
+                                <?php } elseif ($agama == "Buddha") { ?>
+                                    <option value="Islam"disabled>Islam</option>
+                                    <option value="Kristen"disabled>Kristen</option>
+                                    <option value="Buddha"selected>Buddha</option>
+                                    <option value="Hindu"disabled>Hindu</option>
+                                <?php } else { ?>
+                                    <option value="Islam"disabled>Islam</option>
+                                    <option value="Kristen"disabled>Kristen</option>
+                                    <option value="Buddha"disabled>Buddha</option>
+                                    <option value="Hindu"selected>Hindu</option>
+                                <?php }?>
                             </select>
                         </div>
                         <div class = "form-group">
                             <label for="">Umur</label>
                             <input type="number" name = "umur" value = "<?php echo $umur; ?>" readonly class ="form-control">
-                        </form>
-                    </div>
+                        </div>
+                        <button class = "btn btn-outline-danger"><a href="index.php" style = "text-decoration: none ; color: black">Back</a></button>
+                    </form>    
                 </div>
             </div>
         </div>

@@ -26,12 +26,12 @@ $bio = new Biodata();
         }
     ?>
     <fieldset>
+    <form action="proses.php?aksi=update" method="post">
         <div class = "container">
             <div class = "col-md-12">
                 <div class = "card">
                     <div class = "card-header"><legend>Edit Data Siswa</legend></div>
                     <div class = "card-body">
-                        <form action="proses.php?aksi=update" method="post">
                             <div class = "form-group">
                                 <input type="hidden" name="id" value="<?php echo $id; ?>">                    
                                 <label for="">Nama</label> 
@@ -43,42 +43,27 @@ $bio = new Biodata();
                                 <label for="">Jenis Kelamin</label>
                                     <?php 
                                         if ($jk == "Laki - Laki") {?>
-                                    <input type="radio" name = "jk" value = "Laki - Laki" checked>Laki Laki
-                                    <input type="radio" name="jk" value = "Perempuan">Perempuan   
+                                            <input type="radio" name = "jk" value = "Laki - Laki" checked>Laki Laki
+                                            <input type="radio" name="jk" value = "Perempuan">Perempuan   
                                     <?php }else { ?>
-                                    <input type="radio" name = "jk" value = "Laki - Laki">Laki Laki
-                                    <input type="radio" name="jk" value = "Perempuan" checked>Perempuan
-                                  <?php }
-                                    ?> 
+                                            <input type="radio" name = "jk" value = "Laki - Laki">Laki Laki
+                                            <input type="radio" name="jk" value = "Perempuan" checked>Perempuan
+                                    <?php } ?> 
                                     <br> 
                                 <label for="">Agama</label>
                                 <select name="agama" id="" value = "<?php echo $agama ;?>" class = "form-control">
-                                        <?php if ($agama == "Islam") { ?>
-                                            <option value="Islam"selected>Islam</option>
-                                            <option value="Kristen">Kristen</option>
-                                            <option value="Buddha">Buddha</option>
-                                            <option value="Hindu">Hindu</option>
-                                        <?php } elseif ($agama == "Kristen") { ?>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Kristen"selected>Kristen</option>
-                                            <option value="Buddha">Buddha</option>
-                                            <option value="Hindu">Hindu</option>
-                                        <?php } elseif ($agama == "Buddha") { ?>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Kristen">Kristen</option>
-                                            <option value="Buddha"selected>Buddha</option>
-                                            <option value="Hindu">Hindu</option>
-                                        <?php } else { ?>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Kristen">Kristen</option>
-                                            <option value="Buddha">Buddha</option>
-                                            <option value="Hindu"selected>Hindu</option>
-                                        <?php }?>
+                                        
+                                            <option value="Islam"<?php if ($agama == "Islam") {
+                                            ?> selected <?php } ?>>Islam</option>
+                                            <option value="Kristen"<?php if ($agama == "Kristen") {
+                                            ?> selected <?php } ?>>Kristen</option>
+                                            <option value="Buddha"<?php if ($agama == "Buddha") {
+                                            ?> selected <?php } ?>>Buddha</option>
+                                            <option value="Hindu"<?php if ($agama == "Hindu") {
+                                            ?> selected <?php } ?>>Hindu</option>
                                         </select><br>
-                                <Label>Umur</Label>
-                                <input type="number" name="umur" value = "<?php echo $umur;?>" class = "form-control">
-                            </div>
-                            <input type="submit" name="save" value="Simpan" class = "btn btn-outline-success">
+                                </div>
+                            <input type="submit" name = "sbm" value="Simpan" class = "btn btn-outline-success">
                         </form>
                     </div>
                 </div>

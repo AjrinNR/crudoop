@@ -2,7 +2,7 @@
 include '../database2.php';
 $bio = new Biodata();
 $aksi = $_GET['aksi'];
-if(isset($_POST['save']))
+if(isset($_POST['sbm']))
 {
     $id = $_POST['id'];
     $nama = $_POST['nama'];

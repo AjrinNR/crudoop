@@ -9,11 +9,12 @@
         
         //menambah data
         public function create($nama,$alamat,$tgl_lahir, $jk, $agama, $umur){
-            mysqli_query($this->koneksi, "insert into biodata values('','$nama','$alamat','$tgl_lahir', '$jk',' $agama',' $umur')");
+            mysqli_query($this->koneksi, "insert into biodata values(null,'$nama','$alamat','$tgl_lahir', '$jk',' $agama',' $umur')");
         }
         // menampilkan data berdasarkan id
         public function show($id){
             $databio = mysqli_query($this->koneksi, "select * from biodata where id ='$id'");
+            return $databio;
         }
         // menampilkan data berdasarkan id
         public function edit($id){

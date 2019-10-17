@@ -9,15 +9,14 @@
 </head>
 <body>
     <fieldset>
-        <legend>Input Biodata</legend>
-        <div class = "container">
-        <div class = "row" style = "padding:10px">
-            <div class = "col-md-12">
-            <center><h2>Biodata</h2></center>
-                <div class = "card">
-                    <div class ="card-header">Biodata Siswa</div>
-                    <div class = "card-body">
-                        <form action="proses.php?aksi=tambah" method = "post">
+        <form action="proses.php?aksi=tambah" method = "post">
+            <div class = "container">
+            <div class = "row" style = "padding:10px">
+                <div class = "col-md-12">
+                <center><h2>Input Biodata</h2></center>
+                    <div class = "card">
+                        <div class ="card-header">Biodata Siswa</div>
+                        <div class = "card-body">
                             <div class = "form-group">
                                 <label for="">Nama</label> 
                                 <input type="text" name="nama" required class = "form-control   ">
@@ -50,17 +49,17 @@
                                         <option value="Kristen">Kristen</option>
                                         <option value="Buddha">Buddha</option>
                                         <option value="Hindu">Hindu</option>
-                                    </select>
+                                </select>
                             
                             </div>
-                                  <input type="button" name="save" value="Simpan" class = "btn btn-outline-success">
-                            </div>
-                        </form>
+                                  <input type="submit" value="Simpan" name = "sbm" class = "btn btn-outline-success">
+                            </div>                        
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </body>
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.bundle.js"></script>
